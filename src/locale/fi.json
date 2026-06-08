@@ -1,0 +1,386 @@
+{
+  "access": {
+    "admin": "Pääkäyttäjä",
+    "api": "API",
+    "appadmin": "Sovelluksen pääkäyttäjä",
+    "user": "Käyttäjä"
+  },
+  "app": {
+    "name": "Centria CoPower"
+  },
+  "buttons": {
+    "addnew": "Lisää uusi",
+    "addnewchartsensor": "Lisää uusi anturi kaavioon",
+    "cancel": "Peruuta",
+    "confirm": "Vahvista",
+    "load": "Lataa",
+    "delete": "Poista",
+    "deleteprofile": "Poista profiili",
+    "login": "Kirjaudu",
+    "register": "Rekisteröi",
+    "reload" : "Päivitä",
+    "resetpw": "Nollaa salasana",
+    "save": "Tallenna",
+    "undo": "Kumoa"
+  },
+  "csv": {
+    "date": "Päivämäärä",
+    "downloadPrompt": "Lataa CSV",
+    "downloadMessage": "Haluatko ladata tämän kaavion \"{name}\" mittaukset CSV-tiedostona?"
+  },
+  "dialog": {
+    "addapi": "Lisää API-avain",
+    "addapi_message": "Haluatko luoda uuden API-avaimen?",
+    "logout": "Uloskirjautuminen",
+    "logout_message": "Haluatko uloskirjautua sovelluksesta?",
+    "remove_apikey": "Haluatko poistaa API-avaimen \"{organisation}\"?",
+    "remove_organisation": "Haluatko poistaa organisaation \"{organisation}\"?\n\nTämä poistaa organisaation myös kaikista siihen kytketyistä antureista ja käyttäjistä.",
+    "remove_sensor": "Haluatko poistaa anturin \"{sensor}\"?",
+    "remove_user": "Haluatko poistaa käyttäjän \"{user}\" ({email})?",
+    "resend_invitation": "Haluatko lähettää rekisteröintikutsun uudestaan käyttäjälle \"{user}\" ({email})?"
+  },
+  "errors": {
+    "add_user": {
+      "AAUU178743": "Käyttäjä on jo olemassa"
+    },
+    "general": {
+      "error": "Tapahtui virhe, yritä myöhemmin uudelleen"
+    },
+    "login": {
+      "AUT425051": "Tilisi ei ole sidoksissa mihinkään organisaatioon",
+      "AUT767551": "Tilisi on tällä hetkellä lukittu. Ota yhteyttä organisaatiosi järjestelmänvalvojaan.",
+      "disabled": "Käyttäjä on poistettu käytöstä. Ota yhteyttä ylläpitäjään.",
+      "fail": "Kirjautuminen epäonnistui, sähköposti tai salasana on väärä"
+    },
+    "organisation": {
+      "name_too_short": "Organisaation nimi ei voi olla tyhjä"
+    },
+    "profile": {
+      "delete_confirmation": "Vahvistus vaaditaan"
+    }
+  },
+  "general": {
+    "access": "Käyttöoikeus",
+    "activated": "Aktivoitu",
+    "add": "Lisää",
+    "admin": "Pääkäyttäjä",
+    "checkLogin": "Tarkistetaan kirjautuminen...",
+    "created": "Luotu",
+    "creator": "Luoja",
+    "dashboard": "Kojetaulu",
+    "dashboardLoad": "Ladataan kojetaulua...",
+    "datageterror": "Tietojen lataus epäonnistui, yritä uudelleen napsauttamalla tästä",
+    "dataload": "Ladataan tietoja...",
+    "deactivated": "Deaktivoitu",
+    "default": "Oletus",
+    "deviceSource": "Laite",
+    "edit": "Muokkaa",
+    "email": "Sähköposti",
+    "hmi": "HMI",
+    "id": "ID",
+    "lastdata": "Viimeisin tieto",
+    "lastlogin": "Edellinen kirjautuminen",
+    "months": {
+      "0": "Tammikuu",
+      "1": "Helmikuu",
+      "2": "Maaliskuu",
+      "3": "Huhtikuu",
+      "4": "Toukokuu",
+      "5": "Kesäkuu",
+      "6": "Heinäkuu",
+      "7": "Elokuu",
+      "8": "Syyskuu",
+      "9": "Lokakuu",
+      "10": "Marraskuu",
+      "11": "Joulukuu"
+    },
+    "name": "Nimi",
+    "newpassword": "Uusi salasana",
+    "newpasswordr": "Uuden salasanan toisto",
+    "no": "Ei",
+    "none": "Ei mitään",
+    "organisation": "Organisaatio",
+    "password": "Salasana",
+    "passwordrequirement": "Salasanan tulee olla 10 - 40 merkkiä pitkä ja sisältää pieniä kirjaimia, isoja kirjaimia ja erikoismerkkejä",
+    "private": "Yksityinen",
+    "public": "Julkinen",
+    "remove": "Poista",
+    "resend_invitation": "Lähetä rekisteröintikutsu uudestaan",
+    "settings": "Asetukset",
+    "shared": "Jaettu",
+    "shareddesc": "Muut organisaatiot",
+    "status": "Tila",
+    "type": "Tyyppi",
+    "unit": "Yksikkö",
+    "user": "Käyttäjä",
+    "unknown": "Tuntematon",
+    "updated": "Päivitetty",
+    "valueChange": "Arvon muutos",
+    "yes": "Kyllä"
+  },
+  "locale": {
+    "en": "English",
+    "fi": "Suomi"
+  },
+  "pages": {
+    "dashboard": {
+      "select": "Valitse kojetaulu pudotusvalikosta"
+    },
+    "dashboard-edit": {
+      "dashboardType": {
+        "default": "Oletus",
+        "public": "Julkinen",
+        "user": "Oma kojetaulu"
+      },
+      "delete": "Poista",
+      "delete_chart_sensor": "Haluatko poistaa tämän anturin kaaviosta?",
+      "delete_message": "Haluatko poistaa tämän anturin kojetaulusta?",
+      "save": "Tallenna",
+      "save_message": "Haluatko tallentaa nykyisen kojetaulun?",
+      "select_sensor": "Anturin asetukset",
+      "select_sensor_name": "Nimi",
+      "source": "Mittauslähde",
+      "status1": "Ladataan kojetaulua...",
+      "status2": "Kojelaudan lataamisessa tapahtui virhe, yritä uudelleen napsauttamalla tätä",
+      "status4": "Tallennetaan kojetaulua...",
+      "title": "Muokkaa anturia",
+      "valueDivider": "Arvon jakaja"
+    },
+    "dashboard-view": {
+      "daterange": "Valitse aikaväli",
+      "error0": "Kojelaudan lataamisessa tapahtui virhe, yritä uudelleen napsauttamalla tätä",
+      "error2": "Mittauksien haussa tapahtui virhe, yritä uudelleen napsauttamalla tätä",
+      "error3": "Yksi (tai useampi) antureista ei ole olemassa tai sinulla ei ole oikeuksia siihen, yritä uudelleen napsauttamalla tätä",
+      "error4": "Valitulle aikavälille ei löytynyt mittauksia",
+      "nodashboard": "Kojetaulua ei ole, voit luoda uuden napsauttamalla oikean yläkulman asetukset-valikkoa",
+      "no_range_selected": "Aikaväliä ei ole valittu, valitse aikaväli ladataksesi kojetaulun mittaukset",
+      "options": {
+        "custom_month": "Mukautettu (Kuukausi)",
+        "custom_range": "Mukautettu (Aikaväli)",
+        "day": "Tänään",
+        "month": "Tämä viikko",
+        "week": "Tämä kuukausi"
+      },
+      "sensor_data_load": "Ladataan mittauksia...",
+      "title": "Kojetaulu"
+    },
+    "forgot-password": {
+      "send": "Lähetä pyyntö",
+      "send_request": "Lähetetään pyyntöä...",
+      "success": "Ohjeet salasanan palauttamiseksi on lähetetty antamaasi sähköpostiosoitteeseen.",
+      "title": "Unohtunut salasana"
+    },
+    "hmi": {
+      "bess_status": [
+        "Valmiustila", "Itsetarkastus", "Normaali", "Hälytys (Varoitus)", "Vika", "Modbus yhteysvirhe", "Tuntematon"
+      ],
+      "dashboardLoad":"Ladataan kojetaulua...",
+      "dashboardLoadError":"Kojetaulun lataamisessa tapahtui virhe, yritä uudelleen napsauttamalla tätä",
+      "lastDataUpdate": "Viimeisin tieto",
+      "sections": {
+        "BESS": "Akkujärjestelmä",
+        "EM370": "EM370 Sähkömittari",
+        "EM371": "EM371 Sähkömittari"
+      },
+      "sensors": {
+        "ActiveEnergy": "Aktiivinen energia",
+        "ActiveEnergyConsumed": "Kulutettu aktiivinen energia",
+        "ActiveEnergyDelivered": "Toimitettu aktiivinen energia",
+        "Battery": "Akku",
+        "BESSStatus": "Tila",
+        "Consumed": "Kulutettu",
+        "Current": "Virta",
+        "Delivered": "Toimitettu",
+        "Grid": "Verkko",
+        "Inverter": "Invertteri",
+        "Load": "Kuorma",
+        "Maximum": "Maksimi",
+        "State": "Tila",
+        "TodayEnergyStatus": "Tämän päivän energiatila",
+        "TotalActive": "Kokonaisaktiivinen",
+        "TotalEnergy": "Kokonaisenergia",
+        "TotalEnergyStatus": "Kokonaisenergian tila",
+        "Today": "Tänään",
+        "Voltage": "Jännite"
+      },
+      "values": {
+        "Voltage_U1": "U1",
+        "Voltage_U2": "U2",
+        "Voltage_U3": "U3",
+        "Current_I1": "I1",
+        "Current_I2": "I2",
+        "Current_I3": "I3",
+        "Current_IN": "IN",
+        "ActiveEnergyConsumed_Phase1": "Aktiivinen energia kulutettu vaihe 1",
+        "ActiveEnergyConsumed_Phase2": "Aktiivinen energia kulutettu vaihe 2",
+        "ActiveEnergyConsumed_Phase3": "Aktiivinen energia kulutettu vaihe 3",
+        "ActiveEnergyConsumed_AllPhases": "Aktiivinen energia kulutettu kaikki vaiheet",
+        "ActiveEnergyDelivered_Phase1": "Aktiivinen energia toimitettu vaihe 1",
+        "ActiveEnergyDelivered_Phase2": "Aktiivinen energia toimitettu vaihe 2",
+        "ActiveEnergyDelivered_Phase3": "Aktiivinen energia toimitettu vaihe 3",
+        "ActiveEnergyDelivered_AllPhases": "Aktiivinen energia toimitettu kaikki vaiheet",
+        "TotalActive_Delivery": "Kokonaisaktiivinen toimitus",
+        "TotalActive_Demand": "Kokonaisaktiivinen kysyntä",
+        "TotalActive_Power": "Kokonaisaktiivinen teho",
+        "Maximum_I1": "Maksimi I1",
+        "Maximum_I2": "Maksimi I2",
+        "Maximum_I3": "Maksimi I3",
+        "Maximum_IN": "Maksimi IN",
+        "Maximum_Delivery": "Maksimi toimitus",
+        "Maximum_Demand": "Maksimi kysyntä",
+        "Battery_Capacity": "Akun kapasiteetti",
+        "Battery_Current": "Akun virta",
+        "Battery_Power": "Akun teho",
+        "Battery_StateOfCharge": "Akun lataustila",
+        "Inverter_OutputTotalActivePower": "Invertterin lähtökokonaisaktiivinen teho",
+        "TodayBattery_Charge": "Tämän päivän akun lataus",
+        "TodayBattery_Discharge": "Tämän päivän akun purku",
+        "TodayGrid_Export": "Tämän päivän verkon viivaus",
+        "TodayGrid_Import": "Tämän päivän verkon tuonti",
+        "TodayLoad_LoadConsumption": "Tämän päivän kuorman kulutus",
+        "TotalBattery_Charge": "Kokonaisakun lataus",
+        "TotalBattery_Discharge": "Kokonaisakun purku",
+        "TotalGrid_Export": "Kokonaisverkon viivaus",
+        "TotalGrid_Import": "Kokonaisverkon tuonti",
+        "TotalLoad_LoadConsumption": "Kokonaiskuorman kulutus",
+        "Status_Capacity": "Tilan kapasiteetti",
+        "Status_MaximumChargeCurrent": "Tilan maksimi latausvirta",
+        "Status_MaximumDischargeCurrent": "Tilan maksimi purkuvirta",
+        "Status_State": "Tilanne"
+      }
+    },
+    "login": {
+      "fpassword": "Unohtunut salasana",
+      "login": "Kirjaudutaan sisään...",
+      "or": "tai",
+      "public": "Avaa julkinen näkymä"
+    },
+    "organisation": {
+      "title": "Organisaatio",
+      "orgType": "Organisaation tyyppi"
+    },
+    "profile": {
+      "changepw": "Vaihda salasana",
+      "delete_confirmation": "Ymmärrän, että menetän pääsyn profiilini ja kaikki siihen liittyvät tiedot poistetaan 30 päivän kuluessa.",
+      "passwordc": "Nykyinen salasana",
+      "title": "Profiili"
+    },
+    "public": {
+      "backToLogin": "Palaa kirjautumissivulle",
+      "initloadretry": "Julkisen listauksen lataamisessa tapahtui virhe, yritä uudelleen napsauttamalla tätä",
+      "noPublicData": "Julkisia tietoja ei ole saatavilla tällä hetkellä.",
+      "selectOrganisation": "Valitse organisaatio"
+    },
+    "register": {
+      "check_token": "Tarkistetaan rekisteröinnin tilaa...",
+      "registering": "Registeröidään tiliäsi...",
+      "title": "Tilin rekisteröinti",
+      "validation_error": {
+        "error": "Rekisteröintipyynnön vahvistamisessa tapahtui virhe, yritä myöhemmin uudelleen",
+        "invalid": "Rekisteröintipyynnön vahvistuslinkki on joko vanhentunut tai virheellinen, ole hyvä ja pyydä uusi linkki"
+      }
+    },
+    "reset-password": {
+      "check_token": "Tarkistetaan pyyntöäsi...",
+      "fail_password": "Salasanan nollauksessa tapahtui virhe, yritä uudelleen",
+      "fail_registration": "Tilin luomisessa tapahtui virhe, yritä uudelleen",
+      "resetting_password": "Salasanaa nollataan...",
+      "success_password": "Salasanasi nollattiin onnistuneesti!",
+      "success_register": "Tilisi luotiin onnistuneesti!",
+      "title": {
+        "password": "Nollaa salasana",
+        "register": "Tilin rekisteröinti"
+      },
+      "validation_error": {
+        "error_password": "Salasanan nollauspyyntösi vahvistamisessa tapahtui virhe, yritä myöhemmin uudelleen",
+        "error_register": "Rekisteröintipyynnön vahvistamisessa tapahtui virhe, yritä myöhemmin uudelleen",
+        "invalid_password": "Salasanan nollauspyyntösi on joko vanhentunut tai virheellinen, ole hyvä ja luo uusi pyyntö",
+        "invalid_register": "Rekisteröintipyynnön vahvistuslinkki on joko vanhentunut tai virheellinen, ole hyvä ja pyydä uusi linkki"
+      }
+    },
+    "settings": {
+      "api": {
+        "apikey": "API-avain",
+        "lastused": "Viimeisin käyttö",
+        "title": "API"
+      },
+      "organisation": {
+        "title": "Organisaatio"
+      },
+      "organisations": {
+        "title": "Organisaatiot"
+      },
+      "sensors": {
+        "source": "Mittauslähde",
+        "title": "Anturit"
+      },
+      "users": {
+        "title": "Käyttäjät"
+      }
+    }
+  },
+  "toast": {
+    "add_api_ok": "Uusi API-avain luotu onnistuneesti",
+    "add_api_fail": "Uuden API-avaimen luominen epäonnistui",
+    "api_delete_fail": "API-avaimen poisto epäonnistui",
+    "api_delete_ok": "API-avain poistettu onnistuneesti",
+    "check_login": "Sisäänkirjautumisen tarkistus",
+    "check_login_error": "Kirjautumisesi tarkistuksessa tapahtui virhe, yritä myöhemmin uudelleen",
+    "check_login_expired": "Kirjautumisesi on vanhentunut, kirjaudu uudelleen",
+    "check_login_fail": "Kirjautuminen vaaditaan, automaattinen kirjautuminen ei onnistu",
+    "check_login_invalid": "Kirjautuminen vaaditaan, kirjautumisesi on vanhentunut tai virheellinen",
+    "check_login_network_error": "Automaattinen kirjautuminen epäonnistui, verkkoyhteytesi ei ole käytettävissä tai palvelimeen ei saada yhteyttä",
+    "login": "Sisäänkirjautuminen",
+    "login_ok": "Olet kirjautunut sisään",
+    "logout": "Uloskirjautuminen",
+    "logout_ok": "Olet kirjautunut ulos",
+    "no_changes": "Päivitystä ei tehty, muutoksia ei löytynyt",
+    "organisation_add_fail": "Uuden organisaation lisääminen epäonnistui",
+    "organisation_add_ok": "Uusi organisaatio lisättiin onnistuneesti",
+    "organisation_delete_fail": "Organisaation poistaminen epäonnistui",
+    "organisation_delete_ok": "Organisaatio poistettiin onnistuneesti",
+    "organisation_edit_fail": "Organisaation päivitys epäonnistui",
+    "organisation_edit_ok": "Organisaation päivitys onnistui",
+    "profile_update": "Profiili",
+    "profile_update_fail": "Profiilin päivitys epäonnistui",
+    "profile_update_ok": "Profiilisi on päivitetty onnistuneesti, jos vaihdoit salasanaasi, käytä uutta salasanaasi seuraavassa kirjautumisessa",
+    "sensors_add_fail": "Uuden anturin lisäys epäonnistui",
+    "sensors_add_ok": "Uusi anturi on lisätty onnistuneesti",
+    "sensors_delete_fail": "Anturin poistaminen epäonnistui",
+    "sensors_delete_ok": "Anturin poistaminen onnistui",
+    "sensors_edit_fail": "Anturin muokkaus epäonnistui",
+    "sensors_edit_ok": "Anturin muokkaus onnistui",
+    "sensors_load_fail": "Anturilistan lataus epäonnistui",
+    "user_dashboard_save_fail": "Kojetaulun tallennus epäonnistui",
+    "user_dashboard_save_ok": "Kojetaulu on tallennettu",
+    "users_add_fail": "Uuden käyttäjän lisääminen epäonnistui",
+    "users_add_ok": "Uusi käyttäjä lisättiin onnistuneesti",
+    "users_delete_fail": "Käyttäjän poistaminen epäonnistui",
+    "users_delete_ok": "Käyttäjä poistettiin onnistuneesti",
+    "users_edit_fail": "Käyttäjän päivitys epäonnistui",
+    "users_edit_ok": "Käyttäjän päivitys onnistui",
+    "users_resend_fail": "Rekisteröintikutsun uudelleenlähetys epäonnistui",
+    "users_resend_ok": "Rekisteröintikutsu lähetettiin uudestaan onnistuneesti"
+  },
+  "validation": {
+    "email_invalid": "Sähköpostiosoite on virheellinen",
+    "email_none": "Sähköpostin ei tulisi olla tyhjä",
+    "invalid_sensor_selected": "Virheellinen mittaus valittu, valitse anturin mittaus",
+    "name_too_short": "Nimen ei tulisi olla tyhjä",
+    "nochanges": "Päivitystä ei tehty, muutoksia ei löytynyt",
+    "organisation_too_short": "Organisaation nimen ei tulisi olla tyhjä",
+    "password_lowercase": "Salasanassa pitäisi olla vähintään yksi pieni kirjain",
+    "password_new_lowercase": "Uudessa salasanassa pitäisi olla vähintään yksi pieni kirjain",
+    "password_new_mismatch": "Uuden salasanan pitäisi täsmätä toiston kanssa",
+    "password_new_none": "Uuden salasanan ei pitäisi olla tyhjä",
+    "password_new_special_char": "Uudessa salasanassa pitäisi olla vähintään yksi erikoismerkki",
+    "password_new_too_long": "Uudessa salasanan on oltava enintään 40 merkkiä pitkä",
+    "password_new_too_short": "Uudessa salasanan on oltava vähintään 10 merkkiä pitkä",
+    "password_new_uppercase": "Uudessa salasanassa pitäisi olla vähintään yksi iso kirjain",
+    "password_none": "Salasanan ei pitäisi olla tyhjä",
+    "password_special_char": "Salasanassa pitäisi olla vähintään yksi erikoismerkki",
+    "password_too_long": "Salasanan on oltava enintään 40 merkkiä pitkä",
+    "password_too_short": "Salasanan on oltava vähintään 10 merkkiä pitkä",
+    "password_uppercase": "Salasanassa pitäisi olla vähintään yksi iso kirjain"
+  }
+}

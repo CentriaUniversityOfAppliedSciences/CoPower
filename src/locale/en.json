@@ -1,0 +1,386 @@
+{
+  "access": {
+    "admin": "Admin",
+    "api": "API",
+    "appadmin": "App admin",
+    "user": "User"
+  },
+  "app": {
+    "name": "Centria CoPower"
+  },
+  "buttons": {
+    "addnew": "Add new",
+    "addnewchartsensor": "Add new chart sensor",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "deleteprofile": "Delete profile",
+    "load": "Load",
+    "login": "Login",
+    "register": "Register",
+    "reload" : "Reload",
+    "resetpw": "Reset password",
+    "save": "Save",
+    "undo": "Undo"
+  },
+  "csv": {
+    "date": "Date",
+    "downloadPrompt": "Download CSV",
+    "downloadMessage": "Do you want to download the measurements of this chart \"{name}\" as a CSV file?"
+  },
+  "dialog": {
+    "addapi": "Add API key",
+    "addapi_message": "Do you want to create a new API key?",
+    "logout": "Logout",
+    "logout_message": "Do you want to logout from the app?",
+    "remove_apikey": "Do you want to remove API key \"{organisation}\"?",
+    "remove_organisation": "Do you want to remove \"{organisation}\"?\n\nThis will also remove the organisation from all sensors and users connected to it",
+    "remove_sensor": "Do you want to remove \"{sensor}\"?",
+    "remove_user": "Do you want to remove \"{user}\" ({email})?",
+    "resend_invitation": "Do you want to resend the registration invitation email to \"{user}\" ({email})?"
+  },
+  "errors": {
+    "add_user": {
+      "AAUU178743": "User already exists"
+    },
+    "general": {
+      "error": "An error occured, please try again later"
+    },
+    "login": {
+      "AUT425051": "Your account is not affiliated to any organisation",
+      "AUT767551": "Your account is currently locked, please contact your organisation's administator user",
+      "disabled": "User account is locked. Please contact administrator.",
+      "fail": "Login failed, email or password is incorrect"
+    },
+    "organisation": {
+      "name_too_short": "Organisation name cannot be empty"
+    },
+    "profile": {
+      "delete_confirmation": "Confirmation is required"
+    }
+  },
+  "general": {
+    "access": "Access",
+    "activated": "Activated",
+    "add": "Add",
+    "admin": "Admin",
+    "checkLogin": "Checking login...",
+    "created": "Created",
+    "creator": "Creator",
+    "dashboard": "Dashboard",
+    "dashboardLoad": "Loading dashboard...",
+    "datageterror": "Loading data failed, click here to try again",
+    "dataload": "Loading data...",
+    "deactivated": "Deactivated",
+    "default": "Default",
+    "deviceSource": "Device",
+    "edit": "Edit",
+    "email": "Email address",
+    "hmi": "HMI",
+    "id": "ID",
+    "lastdata": "Last data",
+    "lastlogin": "Last login",
+    "months": {
+      "0": "January",
+      "1": "February",
+      "2": "March",
+      "3": "April",
+      "4": "May",
+      "5": "June",
+      "6": "July",
+      "7": "August",
+      "8": "September",
+      "9": "October",
+      "10": "November",
+      "11": "December"
+    },
+    "name": "Name",
+    "newpassword": "New password",
+    "newpasswordr": "New password repeat",
+    "no": "No",
+    "none": "None",
+    "organisation": "Organisation",
+    "password": "Password",
+    "passwordrequirement": "Password should be between 10 - 40 characters long and include lowercase, uppercase, and a special character",
+    "private": "Private",
+    "public": "Public",
+    "remove": "Remove",
+    "resend_invitation": "Resend registration invitation",
+    "settings": "Settings",
+    "shared": "Shared",
+    "shareddesc": "Other organisations",
+    "status": "Status",
+    "type": "Type",
+    "unit": "Unit",
+    "user": "User",
+    "unknown": "Unknown",
+    "updated": "Updated",
+    "valueChange": "Value Change",
+    "yes": "Yes"
+  },
+  "locale": {
+    "en": "English",
+    "fi": "Suomi"
+  },
+  "pages": {
+    "dashboard": {
+      "select": "Please select a dashboard from the dropdown above"
+    },
+    "dashboard-edit": {
+      "dashboardType": {
+        "default": "Default",
+        "public": "Public",
+        "user": "My dashboard"
+      },
+      "delete": "Delete",
+      "delete_chart_sensor": "Do you want to delete this sensor from the chart?",
+      "delete_message": "Do you want to delete this sensor from the dashboard?",
+      "save": "Save",
+      "save_message": "Do you want to save your current dashboard?",
+      "select_sensor": "Sensor settings",
+      "select_sensor_name": "Name",
+      "source": "Measurement source",
+      "status1": "Loading dashboard...",
+      "status2": "An error occured while loading your dashboard, click here to try again",
+      "status4": "Saving dashboard...",
+      "title": "Edit dashboard",
+      "valueDivider": "Value divider"
+    },
+    "dashboard-view": {
+      "daterange": "Select date range",
+      "error0": "An error occured while loading your dashboard, click here to try again",
+      "error2": "Error occured when fetching measurements, click here to try again",
+      "error3": "One of the sensor(s) does not exist or you do not have access to it, click here to try again",
+      "error4": "No measurements found for the selected time range",
+      "nodashboard": "No dashboard to view, you can create a new one by clicking the settings menu at the top right corner",
+      "no_range_selected": "No time range selected, please select a time range to load the dashboard measurements",
+      "options": {
+        "custom_month": "Custom (Month)",
+        "custom_range": "Custom (Time range)",
+        "day": "Today",
+        "month": "This month",
+        "week": "This week"
+      },
+      "sensor_data_load": "Loading measurements...",
+      "title": "Dashboard"
+    },
+    "forgot-password": {
+      "send": "Send request",
+      "send_request": "Sending request...",
+      "success": "Instructions how to reset your password has been successfully sent to your provided email address",
+      "title": "Forgotten password"
+    },
+    "hmi": {
+      "bess_status": [
+        "Standby", "Self-check", "Normal", "Alarm (Warning)", "Fault", "Modbus connection error", "Unknown"
+      ],
+      "dashboardLoad": "Loading HMI dashboard...",
+      "dashboardLoadError": "An error occured while loading the HMI dashboard, click here to try again",
+      "lastDataUpdate": "Last data update",
+      "sections": {
+        "BESS": "Battery Energy Storage System",
+        "EM370": "EM370 Electricity Meter",
+        "EM371": "EM371 Electricity Meter"
+      },
+      "sensors": {
+        "ActiveEnergy": "Active Energy",
+        "ActiveEnergyConsumed": "Active Energy Consumed",
+        "ActiveEnergyDelivered": "Active Energy Delivered",
+        "Battery": "Battery",
+        "BESSStatus": "Status",
+        "Consumed": "Consumed",
+        "Current": "Current",
+        "Delivered": "Delivered",
+        "Grid": "Grid",
+        "Inverter": "Inverter",
+        "Load": "Load",
+        "Maximum": "Maximum",
+        "State": "State",
+        "TodayEnergyStatus": "Today's Energy Status",
+        "TotalActive": "Total Active",
+        "TotalEnergy": "Total Energy",
+        "TotalEnergyStatus": "Total Energy Status",
+        "Today": "Today",
+        "Voltage": "Voltage"
+      },
+      "values": {
+        "Voltage_U1": "U1",
+        "Voltage_U2": "U2",
+        "Voltage_U3": "U3",
+        "Current_I1": "I1",
+        "Current_I2": "I2",
+        "Current_I3": "I3",
+        "Current_IN": "IN",
+        "ActiveEnergyConsumed_Phase1": "Active Energy Consumed Phase 1",
+        "ActiveEnergyConsumed_Phase2": "Active Energy Consumed Phase 2",
+        "ActiveEnergyConsumed_Phase3": "Active Energy Consumed Phase 3",
+        "ActiveEnergyConsumed_AllPhases": "Active Energy Consumed All Phases",
+        "ActiveEnergyDelivered_Phase1": "Active Energy Delivered Phase 1",
+        "ActiveEnergyDelivered_Phase2": "Active Energy Delivered Phase 2",
+        "ActiveEnergyDelivered_Phase3": "Active Energy Delivered Phase 3",
+        "ActiveEnergyDelivered_AllPhases": "Active Energy Delivered All Phases",
+        "TotalActive_Delivery": "Total Active Delivery",
+        "TotalActive_Demand": "Total Active Demand",
+        "TotalActive_Power": "Total Active Power",
+        "Maximum_I1": "Maximum I1",
+        "Maximum_I2": "Maximum I2",
+        "Maximum_I3": "Maximum I3",
+        "Maximum_IN": "Maximum IN",
+        "Maximum_Delivery": "Maximum Delivery",
+        "Maximum_Demand": "Maximum Demand",
+        "Battery_Capacity": "Battery Capacity",
+        "Battery_Current": "Battery Current",
+        "Battery_Power": "Battery Power",
+        "Battery_StateOfCharge": "Battery State of Charge",
+        "Inverter_OutputTotalActivePower": "Inverter Output Total Active Power",
+        "TodayBattery_Charge": "Today Battery Charge",
+        "TodayBattery_Discharge": "Today Battery Discharge",
+        "TodayGrid_Export": "Today Grid Export",
+        "TodayGrid_Import": "Today Grid Import",
+        "TodayLoad_LoadConsumption": "Today Load Consumption",
+        "TotalBattery_Charge": "Total Battery Charge",
+        "TotalBattery_Discharge": "Total Battery Discharge",
+        "TotalGrid_Export": "Total Grid Export",
+        "TotalGrid_Import": "Total Grid Import",
+        "TotalLoad_LoadConsumption": "Total Load Consumption",
+        "Status_Capacity": "Status Capacity",
+        "Status_MaximumChargeCurrent": "Status Maximum Charge Current",
+        "Status_MaximumDischargeCurrent": "Status Maximum Discharge Current",
+        "Status_State": "State"
+      }
+    },
+    "login": {
+      "fpassword": "Forgotten password",
+      "login": "Logging in...",
+      "or": "or",
+      "public": "Open public view"
+    },
+    "organisation": {
+      "title": "Organisation",
+      "orgType": "Organisation type"
+    },
+    "public": {
+      "backToLogin": "Back to login",
+      "initloadretry": "An error occured while loading the public listing, click here to try again",
+      "noPublicData": "No public data available at the moment.",
+      "selectOrganisation": "Select an Organisation"
+    },
+    "profile": {
+      "changepw": "Change password",
+      "delete_confirmation": "I understand that I will lose access to my profile and all related data will be deleted within 30 days.",
+      "passwordc": "Current password",
+      "title": "Profile"
+    },
+    "register": {
+      "check_token": "Checking your registartion status...",
+      "registering": "Registering your account...",
+      "title": "Account registration",
+      "validation_error": {
+        "error": "An error occured while validating your registration request, please try again later",
+        "invalid": "Your registration request has either expired or is invalid, please request a new one"
+      }
+    },
+    "reset-password": {
+      "check_token": "Checking your request...",
+      "fail_password": "An error occured while resetting your password, please try again",
+      "fail_register": "An error occured while creating your account, please try again",
+      "resetting_password": "Resetting password...",
+      "success_password": "Your password was successfully resetted!",
+      "success_register": "Your account was successfully created!",
+      "title": {
+        "password": "Reset password",
+        "register": "Account registration"
+      },
+      "validation_error": {
+        "error_password": "An error occured while validating your reset password request, please try again later",
+        "error_register": "An error occured while validating your registration request, please try again later",
+        "invalid_password": "Your reset password request has either expired or is invalid, please create a new request",
+        "invalid_register": "Your registration request has either expired or is invalid, please create a new request"
+      }
+    },
+    "settings": {
+      "api": {
+        "apikey": "API key",
+        "lastused": "Last used",
+        "title": "API"
+      },
+      "organisation": {
+        "title": "Organisation"
+      },
+      "organisations": {
+        "title": "Organisations"
+      },
+      "sensors": {
+        "source": "Measurement source",
+        "title": "Sensors"
+      },
+      "users": {
+        "title": "Users"
+      }
+    }
+  },
+  "toast": {
+    "api_add_fail": "New API key addition failed",
+    "api_add_ok": "New API key was successfully added",
+    "api_delete_fail": "API key deletion failed",
+    "api_delete_ok": "API key was deleted successfully",
+    "check_login": "Check login",
+    "check_login_error": "An error occured while checking your login, please try again later",
+    "check_login_expired": "Your login has expired, please login again",
+    "check_login_fail": "Login required, unable to automatically login",
+    "check_login_invalid": "Login required, your login has expired or is invalid",
+    "check_login_network_error": "Automatic login failed, your network connection is not available or server cannot be reached",
+    "login": "Login",
+    "login_ok": "You have successfully logged in",
+    "logout": "Logout",
+    "logout_ok": "You have been logged out",
+    "no_changes": "No update done, no changes found",
+    "organisation_add_fail": "New organisation addition failed",
+    "organisation_add_ok": "New organisation was successfully added",
+    "organisation_delete_fail": "Organisation deletion failed",
+    "organisation_delete_ok": "Organisation was deleted successfully",
+    "organisation_edit_fail": "Organisation update failed",
+    "organisation_edit_ok": "Organisation was updated successfully",
+    "profile_update": "Profile",
+    "profile_update_fail": "Profile update failed",
+    "profile_update_ok": "Your profile was updated successfully, if you changed your password please use the new password at next login",
+    "sensors_add_fail": "New sensor addition failed",
+    "sensors_add_ok": "New sensor was successfully added",
+    "sensors_delete_fail": "Sensor deletion failed",
+    "sensors_delete_ok": "Sensor was deleted successfully",
+    "sensors_edit_fail": "Sensor update failed",
+    "sensors_edit_ok": "Sensor was updated successfully",
+    "sensors_load_fail": "Loading sensor list failed",
+    "user_dashboard_save_fail": "Dashboard save failed",
+    "user_dashboard_save_ok": "Dashboard was successfully saved",
+    "users_add_fail": "New user addition failed",
+    "users_add_ok": "New user was successfully added",
+    "users_delete_fail": "User deletion failed",
+    "users_delete_ok": "User was deleted successfully",
+    "users_edit_fail": "User update failed",
+    "users_edit_ok": "User was updated successfully",
+    "users_resend_fail": "Resending registration invitation email failed",
+    "users_resend_ok": "Registration invitation email was successfully resent"
+  },
+  "validation": {
+    "email_invalid": "Email address is invalid",
+    "email_none": "Email address should not be empty",
+    "invalid_sensor_selected": "Invalid measurement selected, select sensor measurement",
+    "name_too_short": "Name should not be empty",
+    "nochanges": "No update done, no changes found",
+    "organisation_too_short": "Organisation name should not be empty",
+    "password_lowercase": "Password should contain at least one lowercase letter",
+    "password_new_lowercase": "New password should contain at least one lowercase letter",
+    "password_new_mismatch": "New password should match the repeat",
+    "password_new_none": "New password should not be empty",
+    "password_new_special_char": "New password should contain at least one special character",
+    "password_new_too_long": "New password must be a maximum of 40 characters",
+    "password_new_too_short": "New password must be a minimum of 10 characters long",
+    "password_new_uppercase": "New password should contain at least one uppercase letter",
+    "password_none": "Password should not be empty",
+    "password_special_char": "Password should contain at least one special character",
+    "password_too_long": "Password must be no more than 40 characters long",
+    "password_too_short": "Password must be at least 10 characters long",
+    "password_uppercase": "Password should contain at least one uppercase letter"
+  }
+}
