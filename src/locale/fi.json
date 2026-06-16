@@ -311,6 +311,11 @@
         "title": "Organisaatiot"
       },
       "sensors": {
+        "insert_measurement": {
+          "title": "Lisää mittaus anturille \"{sensor}\"",
+          "date": "Päivämäärä",
+          "measurement": "Mittaus"
+        },
         "source": "Mittauslähde",
         "title": "Anturit"
       },
@@ -318,6 +323,13 @@
         "title": "Käyttäjät"
       }
     }
+  },
+  "primevue_locale": {
+    "dayNames": ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"],
+    "dayNamesMin": ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+    "dayNamesShort": ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+    "monthNames": ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+    "monthNamesShort": ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
   },
   "toast": {
     "add_api_ok": "Uusi API-avain luotu onnistuneesti",
@@ -351,6 +363,8 @@
     "sensors_edit_fail": "Anturin muokkaus epäonnistui",
     "sensors_edit_ok": "Anturin muokkaus onnistui",
     "sensors_load_fail": "Anturilistan lataus epäonnistui",
+    "sensors_insert_measurement_fail": "Uuden mittauksen lisääminen epäonnistui",
+    "sensors_insert_measurement_ok": "Uusi mittaus on lisätty onnistuneesti",
     "user_dashboard_save_fail": "Kojetaulun tallennus epäonnistui",
     "user_dashboard_save_ok": "Kojetaulu on tallennettu",
     "users_add_fail": "Uuden käyttäjän lisääminen epäonnistui",

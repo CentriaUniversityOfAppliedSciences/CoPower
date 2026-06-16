@@ -35,6 +35,9 @@ Project is split into 3 parts
 - Measurement and sensor management
 - Organisation and user management
 
+## Documentation
+Technical documentation of the whole system as a whole can be found [here](CoPowerDocumentation.pdf).
+
 ## How to get started
 
 1. Clone the repository
@@ -60,5 +63,5 @@ See LICENSE for more information.
 
 ## Developers
 Centria University of Applied Sciences Ltd.
-- Ville Peltola (Developer)
 - Fabian Sander (Project Manager)
+- Ville Peltola (Developer)

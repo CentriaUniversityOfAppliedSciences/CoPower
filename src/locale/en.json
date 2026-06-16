@@ -311,6 +311,11 @@
         "title": "Organisations"
       },
       "sensors": {
+        "insert_measurement": {
+          "title": "Insert measurement for sensor \"{sensor}\"",
+          "date": "Date",
+          "measurement": "Measurement"
+        },
         "source": "Measurement source",
         "title": "Sensors"
       },
@@ -318,6 +323,13 @@
         "title": "Users"
       }
     }
+  },
+  "primevue_locale": {
+    "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   },
   "toast": {
     "api_add_fail": "New API key addition failed",
@@ -351,6 +363,8 @@
     "sensors_edit_fail": "Sensor update failed",
     "sensors_edit_ok": "Sensor was updated successfully",
     "sensors_load_fail": "Loading sensor list failed",
+    "sensors_insert_measurement_fail": "Inserting new measurement failed",
+    "sensors_insert_measurement_ok": "New measurement was successfully inserted",
     "user_dashboard_save_fail": "Dashboard save failed",
     "user_dashboard_save_ok": "Dashboard was successfully saved",
     "users_add_fail": "New user addition failed",

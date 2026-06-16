@@ -14,23 +14,38 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { Popover } from 'primevue';
 import { AppSettings } from "../../services/Settings";
 import { languageChange, languageCurrent } from "../../services/i18n";
+import { usePrimeVue } from "primevue/config";
 import { useI18n } from "vue-i18n";
+import { all as locales } from 'primelocale';
 
 const { t } = useI18n();
 
+const primevue = usePrimeVue();
 const languagepo = ref(); // Reference to Popover component
+
+onMounted(() => {
+  setPrimeLocale(languageCurrent());
+});
 
 /**
  * Set the application language
  * @param lang - The language code to set
  */
 const setLanguage = (lang: string): void => {
-  if (languageCurrent() !== lang) { languageChange(lang); }
+  if (languageCurrent() !== lang) {
+    setPrimeLocale(lang);
+    languageChange(lang);
+  }
   languagepo.value.hide();
+}
+
+const setPrimeLocale = (lang: string): void => {
+  const newLocale = locales[lang as keyof typeof locales];
+  Object.assign(primevue.config.locale!, newLocale);
 }
 
 /**
@@ -38,6 +53,7 @@ const setLanguage = (lang: string): void => {
  * @param event - The click event
  */
 const toggleLanguage = (event: any): void => {
+
   languagepo.value.toggle(event);
 }
 </script>

@@ -10,6 +10,8 @@ import Button from 'primevue/button';
 import DatePicker from 'primevue/datepicker';
 import { darkModeInit, languageInit } from './services/Settings.ts';
 
+import { en } from 'primelocale/js/en.js';
+
 darkModeInit();
 languageInit();
 
@@ -28,6 +30,7 @@ app
   .use(ToastService) // Use the toast service
   .use(PrimeVue, { // PrimeVue configuration
     theme: {
+      locale: en,
       options: {
         darkModeSelector: '.app-dark-mode'
       },

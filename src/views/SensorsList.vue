@@ -64,6 +64,26 @@
         </div>
       </Form>
     </Dialog>
+    <Dialog ref="insertMeasurementDialog" v-model:visible="insertMeasurementData.active" modal :header="$t('pages.settings.sensors.insert_measurement.title', { sensor: insertMeasurementData.data.sensorName })" :style="{ width: '40rem' }">
+      <Form v-slot="$form" :initialValues="{ date: null, measurement: null }" @submit="insertSensorMeasurement" class="flex flex-col gap-4 w-full">
+        <div class="flex items-center gap-4">
+          <FormField v-slot="$field" name="date" :initialValue="insertMeasurementData.data.date" class="flex flex-col gap-1 width-100">
+            <label for="date" class="font-semibold w-24 width-100">{{ t('pages.settings.sensors.insert_measurement.date') }}</label>
+            <DatePicker v-model="insertMeasurementData.data.date" id="date" class="flex-auto" dateFormat="d.m.yy" :maxDate="insertMeasurementData.data.maxDate" showClear showSeconds showTime />
+          </FormField>
+        </div>
+        <div class="flex items-center gap-4">
+          <FormField v-slot="$field" name="measurement" :initialValue="insertMeasurementData.data.measurement" class="flex flex-col gap-1 width-100">
+            <label for="measurement" class="font-semibold w-24 width-100">{{ t('pages.settings.sensors.insert_measurement.measurement') }}</label>
+            <InputNumber v-model="insertMeasurementData.data.measurement" class="flex-auto" id="measurement" :max="99999999999" :maxFractionDigits="5" :min="-99999999999" :minFractionDigits="0" :useGrouping="false" @input="refocusInput" />
+          </FormField>
+        </div>
+        <div class="flex justify-end gap-2">
+          <Button type="button" :label="$t('buttons.cancel')" severity="secondary" @click="insertMeasurementData.active = false"></Button>
+          <Button :label="$t('buttons.save')" type="submit" :disabled="insertMeasurementData.data.date === null || insertMeasurementData.data.measurement === null"></Button>
+        </div>
+      </Form>
+    </Dialog>
     <div v-if="pageStatus === 0">
       <Loader :absolute="true"/>
     </div>
@@ -92,6 +112,7 @@
         <Column style="width: 12%">
           <template #body="rowProps">
             <div v-if="rowProps.node.data.type === 'sensor' && rowProps.node.key !== userid" class="flex flex-wrap gap-2">
+              <Button type="button" icon="pi pi-cloud-upload" rounded severity="help" @click="openInsertMeasurement(rowProps.node)" />
               <Button type="button" icon="pi pi-pencil" rounded severity="info" @click="displayAddEditSensor(rowProps.node, 'edit')" />
               <Button type="button" icon="pi pi-trash" rounded severity="danger" @click="deleteSensor(rowProps.node)" />
             </div>
@@ -121,7 +142,7 @@ import { SensorsList, SensorListSensor } from '../services/Interfaces';
 import { useI18n } from 'vue-i18n';
 import { AppSettings } from '../services/Settings';
 import { FormatDate, GetURLHeader } from '../services/Utils';
-import { Column, Dialog, InputNumber, InputText, SelectButton, ToggleButton, Tree, TreeTable } from 'primevue';
+import { Column, DatePicker, Dialog, InputNumber, InputNumberInputEvent, InputText, SelectButton, ToggleButton, Tree, TreeTable } from 'primevue';
 import { Form, FormField } from '@primevue/forms';
 import z from 'zod';
 import { toastShow } from '../services/Toast';
@@ -142,6 +163,11 @@ const addEditDialog = ref<{ // Dialog for adding/editing sensors
   error: { timeout: number | ReturnType<typeof setTimeout> | null; message: string };
 }>({ active: false, data: { deviceSource: '', disabled: false, name: '', org: '', orgName: '', shared: 0, unit: '', valueChange: 1 }, error: { timeout: null, message: '' } });
 const addEditUserDialog = ref(); // Reference to the add/edit dialog component
+const insertMeasurementDialog = ref();
+const insertMeasurementData = ref({
+  active: false,
+  data: { date: null, maxDate: new Date(), measurement: null, sensorId: '', sensorName: '' }
+}); // Reference to the insert measurement dialog component
 
 const datalist = ref<SensorsList[]>([]); // Sensor data list
 const pageStatus = ref(0); // Page status (0: loading, 1: loaded, 2: error)
@@ -439,6 +465,38 @@ const getSensors = async (): Promise<void> => {
     pageStatus.value = 2;
     toastShow(t('pages.settings.sensors.title'), t('toast.sensors_load_fail'), 'error');
   }
+}
+
+const insertSensorMeasurement = (): void => {
+  const apiUrl = `${AppSettings.env.API_URL}/measurements/save/${insertMeasurementData.value.data.sensorId}`;
+  axios
+    .post(apiUrl, {
+      date: insertMeasurementData.value.data.date,
+      value: insertMeasurementData.value.data.measurement
+    }, {
+      headers: GetURLHeader()
+    })
+    .then((response) => {
+      toastShow(t('pages.settings.sensors.title'), t('toast.sensors_insert_measurement_ok'), 'success');
+      insertMeasurementDialog.value.close();
+    })
+    .catch((error) => {
+      toastShow(t('pages.settings.sensors.title'), t('toast.sensors_insert_measurement_fail'), 'error');
+    });
+}
+
+const openInsertMeasurement = (rowdata: SensorListSensor): void => {
+  insertMeasurementData.value.data.date = null;
+  insertMeasurementData.value.data.measurement = null;
+  insertMeasurementData.value.data.sensorId = rowdata.key;
+  insertMeasurementData.value.data.sensorName = rowdata.data.name;
+  insertMeasurementData.value.active = true;
+}
+
+const refocusInput = ($event: InputNumberInputEvent): void => {
+  const target = $event.originalEvent.target as HTMLElement;
+  target.blur();
+  target.focus();
 }
 </script>
 
