@@ -118,7 +118,7 @@ const getMeasurements = async (): Promise<void> => {
       }
     })
     .catch((err) => {
-      // Handle error if needed
+      pageStatus.value = 2;
     });
 };
 

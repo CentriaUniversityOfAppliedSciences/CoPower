@@ -52,6 +52,7 @@ export interface DashboardSensorObject // Represents a dashboard sensor object
   index?: number;
   name: string;
   sensors: DashboardSensorDataObject[];
+  size: number[];
   status: number;
 }
 
@@ -68,6 +69,7 @@ export interface DashboardSensorSaveObject // Represents a dashboard sensor obje
 {
   name: string;
   sensors: DashboardSensorDataSaveObject[];
+  size: number[];
 }
 
 interface DashboardSensorDataSaveObject { // Represents data for a dashboard sensor

@@ -1,6 +1,11 @@
 <template>
-  <div class="header-logout flex-center">
-    <div href="#" class="pi pi-sign-out pointer" id="Logout" @click="showLogout()"></div>
+  <div class="header-logout flex-center" @click="showLogout()" :aria-label="$t('header-buttons.logout-accessible')">
+    <div class="flex-1 li-icon">
+      <div href="#" class="pi pi-sign-out pointer" id="Logout"></div>
+    </div>
+    <div v-if="listItem === true" class="flex-4 li-text">
+      {{ $t('header-buttons.logout') }}
+    </div>
   </div>
 </template>
 
@@ -13,6 +18,13 @@ import { useI18n } from 'vue-i18n';
 
 const router = useRouter();
 const { t } = useI18n();
+
+const props = defineProps({
+  listItem: { // If true, the component is used as a list item in the settings menu
+    type: Boolean,
+    default: false
+  }
+});
 
 /**
  * Handle user logout
@@ -55,5 +67,21 @@ const showLogout = (): void => {
 .header-logout {
   display: flex;
   align-items: center;
+}
+
+.li-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 10px;
+}
+
+.li-text {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
 }
 </style>

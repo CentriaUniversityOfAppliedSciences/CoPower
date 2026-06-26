@@ -1,23 +1,23 @@
 <template>
   <aside class="sidebar">
     <div v-if="role === 'admin' || role === 'appadmin'" class="selection-button" @click="navigateTo('/admin/api')">
-      <i class="pi pi-cloud-upload margin-right" />
+      <i class="pi pi-cloud-upload" />
       <span>{{ $t('pages.settings.api.title') }}</span>
     </div>
     <div v-if="role === 'admin'" class="selection-button" @click="navigateTo('/admin/organisation')">
-      <i class="pi pi-building margin-right" />
+      <i class="pi pi-building" />
       <span>{{ $t('pages.settings.organisation.title') }}</span>
     </div>
     <div v-if="role === 'appadmin'" class="selection-button" @click="navigateTo('/admin/organisations')">
-      <i class="pi pi-building margin-right" />
+      <i class="pi pi-building" />
       <span>{{ $t('pages.settings.organisations.title') }}</span>
     </div>
     <div class="selection-button" @click="navigateTo('/admin/users')">
-      <i class="pi pi-user margin-right" />
+      <i class="pi pi-user" />
       <span>{{ $t('pages.settings.users.title') }}</span>
     </div>
     <div class="selection-button" @click="navigateTo('/admin/sensors')">
-      <i class="pi pi-cog margin-right" />
+      <i class="pi pi-cog" />
       <span>{{ $t('pages.settings.sensors.title') }}</span>
     </div>
   </aside>
@@ -43,20 +43,30 @@ const navigateTo = (path) => { // Navigate to specified path
   color: white;
   padding: 10px;
 }
+
 .selection-button {
   cursor: pointer;
   padding: 10px;
   transition: background 0.3s;
 }
+
 .selection-button:hover {
   background: #34495e;
 }
+
 ul {
   list-style: none;
   padding: 0;
 }
 
 @media (orientation: portrait) {
+  .selection-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .sidebar {
     display: flex;
     padding: 10px 20px;
@@ -64,6 +74,8 @@ ul {
 }
 
 @media (orientation: landscape) {
-  
+  .selection-button i {
+    margin-right: 1em;
+  }
 }
 </style>

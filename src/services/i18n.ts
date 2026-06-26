@@ -24,6 +24,7 @@ function languageChange(lang: string): void {
   }
   
   i18n.global.locale.value = lang as 'en' | 'fi';
+  document.documentElement.setAttribute('lang', lang);
   StorageSet('language', lang);
 }
 

@@ -1,9 +1,9 @@
 <template>
   <div class="dashboard-container">
     <i v-if="dashboard === 'user'" class="edit-button pointer pi pi-cog" @click="openEdit()"></i>
-    <div v-if="dashboardLoadError === false && sensors.length > 0" class="dashboard-content sensor-detail">
+    <div v-if="dashboardLoadError === false && items.length > 0" class="dashboard-content sensor-detail">
       <div class="margin-bottom flex flex-col space-x-2">
-        <Select class="w-full md:w-56" v-model="selectedRange" :disabled="dataFetch.run" :options="timeOptions" optionLabel="name" optionValue="type" placeholder="Test" @change="setRange()" />
+        <Select class="dashboard-range-selector w-full md:w-56" v-model="selectedRange" :disabled="dataFetch.run" :options="timeOptions" optionLabel="name" optionValue="type" placeholder="Test" @change="setRange()" />
         <div v-if="selectedRange === 'custom-month'" class="flex flex-col custom-select margin-top-smaller">
           <div class="flex">
             <div class="month-dropdown">
@@ -28,21 +28,21 @@
                 </option>
               </select>
             </div>
-            <Button class="ml-2" label="Load" @click="onMonthOrYearChange" />
+            <Button class="ml-2" :label="$t('buttons.load')" @click="onMonthOrYearChange" />
           </div>
         </div>
 
         <div v-if="selectedRange === 'custom-range'" class="flex flex-col custom-select margin-top-smaller">
           <div class="flex">
             <DatePicker v-model="datesCustomRange" selectionMode="range" :manualInput="false" :maxDate="maxDate" dateFormat="dd.mm.yy" :placeholder="$t('pages.dashboard-view.daterange')" showIcon fluid iconDisplay="input" />
-            <Button class="ml-2" label="Load" @click="loadDashboardRange" />
+            <Button class="ml-2" :label="$t('buttons.load')" @click="loadDashboardRange" />
           </div>
         </div>
       </div>
 
       <div class="content">
-        <div class="grid grid-cols-3 gap-4">
-          <div v-for="(snr, index) of sensors" :class="['slot', { 'error-text': snr.status >= 0 && snr.status <= 3, 'flex-center': snr.status < 5 }]">
+        <div class="chart-grid">
+          <div v-for="(snr, index) of items" :class="['chart-item chart-size-width-' + snr.size[0] + ' chart-size-height-' + snr.size[1], { 'error-text': snr.status >= 0 && snr.status <= 3, 'flex-center': snr.status < 5 }]">
             <Loader v-if="snr.status === 10 || snr.status === 1" text="pages.dashboard-view.sensor_data_load" />
             <ErrorRetry v-else-if="snr.status === 2" message="pages.dashboard-view.error2" @reload="fetchMeasurementsRetry(index)" />
             <ErrorRetry v-else-if="snr.status === 3" message="pages.dashboard-view.error3" @reload="fetchMeasurementsRetry(index)" />
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-    <div class="size100 flex-center" v-if="dashboardLoadError === false && sensors.length === 0">
+    <div class="size100 flex-center" v-if="dashboardLoadError === false && items.length === 0">
       {{ $t('pages.dashboard-view.nodashboard') }}
     </div>
 
@@ -109,7 +109,7 @@ const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]; // Months array
 const selectedMonth = ref(); // Selected month
 const selectedRange = ref(); // Default: "Today"
 const selectedYear = ref(date.getFullYear()); // Selected year
-const sensors = ref<DashboardSensorObject[]>([]); // Sensors array
+const items = ref<DashboardSensorObject[]>([]); // Sensors array
 const timeOptions = computed(() => [ // Time range options
   { name: t('pages.dashboard-view.options.day'), type: 'day' }, // Today
   { name: t('pages.dashboard-view.options.week'), type: 'week' }, // This week
@@ -152,7 +152,7 @@ const fetchMeasurements = async (startTime: string, endTime: string): Promise<vo
 
   const sid: string[] = [];
 
-  for (const s of sensors.value) {
+  for (const s of items.value) {
     s.status = 1;
     for (const s2 of s.sensors) {
       if (sid.includes(s2.sensor) === false) { sid.push(s2.sensor); }
@@ -195,7 +195,7 @@ const fetchMeasurements = async (startTime: string, endTime: string): Promise<vo
  * @param update Update measurements flag
  */
 const fetchMeasurementsDone = async (measurements: { [key: string]: MeasurementResponseObject }, update = false, init = false): Promise<void> => {
-  for (const s of sensors.value) {
+  for (const s of items.value) {
     const sresult = { error: 0, none: 0, ok: 0 };
     let skipSensor = false;
     let updateCount = 0;
@@ -248,7 +248,7 @@ const fetchMeasurementsDone = async (measurements: { [key: string]: MeasurementR
  */
 const fetchMeasurementsRetry = async (sensorIndex: number): Promise<void> => {
   dataFetch.run = true;
-  const sensor = sensors.value[sensorIndex];
+  const sensor = items.value[sensorIndex];
   sensor.status = 1;
 
   dataFetch.loaded = 0;
@@ -258,7 +258,7 @@ const fetchMeasurementsRetry = async (sensorIndex: number): Promise<void> => {
   if (dataFetch.max > 0) { // Fetch measurements for each sensor
     for (const s of sensor.sensors) {
       axios
-        .post(`${AppSettings.env.API_URL}/measurements/${s.sensor}`, { startTime: currentDateRange.value.start, endTime: currentDateRange.value.end }, {
+        .post(`${AppSettings.env.API_URL}/public/measurements/${s.sensor}`, { startTime: currentDateRange.value.start, endTime: currentDateRange.value.end }, {
           headers: GetURLHeader()
         })
         .then((response) => {
@@ -300,10 +300,15 @@ const loadDashboardRange = (): void => {
  * Load the dashboard data
  */
 const loadDashboard = (): void => {
-  const value = StorageGet('dashboard' + props.dashboard.charAt(0).toUpperCase() + props.dashboard.slice(1));
-  sensors.value = value.data;
-  dashboardLoadError.value = false;
-  setRange('day');
+  try {
+    const value = StorageGet('dashboard' + props.dashboard.charAt(0).toUpperCase() + props.dashboard.slice(1));
+    items.value = value.data;
+    
+    dashboardLoadError.value = false;
+    setRange('day');
+  } catch(e) {
+    dashboardLoadError.value = true;
+  }
 }
 
 /**
@@ -331,7 +336,7 @@ const openEdit = (): void => {
  */
 const setRange = (range: 'custom' | 'day' | 'month' | 'week' | null = null): void => {
   if (range !== null) { selectedRange.value = range; }
-  if (sensors.value.length === 0) { return; } // No sensors to fetch data for
+  if (items.value.length === 0) { return; } // No sensors to fetch data for
   const now = new Date();
   let startTime = ''
   let endTime = new Date(now.setHours(23, 59, 59, 999)).toISOString(); // End of today
@@ -470,14 +475,4 @@ select:focus {
 }
 
 .sensor-detail { padding: 10px; }
-
-.slot {
-  border: 1px solid var(--color-black);
-  border-radius: 0.5em;
-  height: 30em;
-  width: 100%;
-  padding: 0.5em;
-  position: relative;
-  overflow: hidden;
-}
 </style>

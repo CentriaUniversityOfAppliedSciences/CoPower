@@ -150,6 +150,9 @@ button:focus-visible {
 .flex-space-between { justify-content: space-between; }
 .full-width { width: 100%; }
 
+.layout-full { display: none; }
+.layout-minimal { display: flex; }
+
 .loader { font-size: 2em !important; }
 .header-icon { font-size: 1.5em !important; }
 .margin-bottom { margin-bottom: 1em; }
@@ -166,6 +169,28 @@ button:focus-visible {
 .text-title { font-size: 2em; }
 .width-100 { width: 100%; }
 
+/* Chart */
+.chart-grid {
+  display: flex;
+  gap: 16px;
+}
+
+.chart-item {
+  border: 1px solid var(--color-black);
+  border-radius: 0.5em;
+  overflow: hidden;
+  padding: 0.5em;
+  position: relative;
+}
+
+.chart-size-height-1 { height: 30em; }
+.chart-size-height-2 { height: 45em; }
+.chart-size-height-3 { height: 60em; }
+.chart-test-height-1 { height: 15em; }
+.chart-test-height-2 { height: 30em; }
+.chart-test-height-3 { height: 45em; }
+
+/* Responsive adjustments */
 @media (orientation: portrait) {
   .card {
     padding: 0.5em;
@@ -176,4 +201,61 @@ button:focus-visible {
   .card {
     padding: 1em;
   }
+}
+
+.chart-grid { flex-direction: column; }
+.chart-size-width-1, .chart-size-width-2, .chart-size-width-3 { width: 98%; }
+
+.dashboard-main-selector {
+  left: 60%;
+  top: 0;
+  width: 36%;
+  height: 4em;
+}
+.dashboard-range-selector { width: 40%; }
+
+.header-settings-full { display: none; }
+.header-settings-minimal { display: flex; }
+
+.navigation-left { display: none; }
+.navigation-right-full { display: none; }
+.navigation-right-minimal { display: flex; }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .chart-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .chart-size-width-1 { width: 31%; }
+  .chart-size-width-2 { width: 65%; }
+  .chart-size-width-3 { width: 98%; }
+
+  .dashboard-main-selector {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4em;
+  }
+  .dashboard-range-selector { width: 20%; }
+
+  .header-settings-full { display: flex; }
+  .header-settings-minimal { display: none; }
+
+  .navigation { display: flex;}
+  .navigation-left { display: flex; }
+  .navigation-right-full { display: flex; }
+  .navigation-right-minimal { display: none; }
+}
+
+/* Laptop / small desktop */
+@media (min-width: 1024px) {
+}
+
+/* Large desktop */
+@media (min-width: 1280px) {
+}
+
+/* Extra large desktop */
+@media (min-width: 1536px) {
 }

@@ -8,12 +8,13 @@
 </template>
 
 <script setup lang="ts">
-import { DashboardSensorDataObject } from '../services/Interfaces';
+import 'chartjs-adapter-date-fns';
+import { DashboardSensorDataObject, MeasurementDataObject } from '../services/Interfaces';
 import Button from 'primevue/button';
 import Chart from 'primevue/chart';
 import { Interaction, InteractionModeFunction } from 'chart.js';
 import { getRelativePosition } from 'chart.js/helpers';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref, shallowRef, watch } from 'vue';
 import { ConvertHEXtoRGB, FormatDate } from '../services/Utils';
 import { useClassPresence } from '../services/useClassPresence';
 import { useI18n } from 'vue-i18n';
@@ -127,7 +128,7 @@ watch(() => props.counter, async (newValue, oldValue) => {
   }, 300);
 });
 
-const chartData = ref(); // Chart data
+const chartData = shallowRef(); // Chart data
 const chartOptions = ref(); // Chart options
 const gridColors = { dark: 'rgba(255, 255, 255, 0.2)', light: 'rgba(0, 0, 0, 0.2)' }; // Grid line colors
 const measurementChart = ref(); // Measurement chart instance
@@ -217,6 +218,30 @@ const getAxisLimits = () => {
 }
 
 /**
+ * Calculate the moving average for the given data
+ * @param data Data to calculate the moving average for
+ * @param windowSize Window size for the moving average
+ * @returns Moving average data
+ */
+const movingAverage = (data: MeasurementDataObject[], windowSize = 5): MeasurementDataObject[] => {
+  const result = [];
+
+  for (let i = 0; i < data.length; i++) {
+    let start = Math.max(0, i - Math.floor(windowSize / 2));
+    let end = Math.min(data.length, i + Math.floor(windowSize / 2) + 1);
+
+    let sum = 0;
+    for (let j = start; j < end; j++) {
+      sum += data[j].y;
+    }
+
+    result.push({ x: data[i].x, y: Math.round((sum / (end - start)) * 10) / 10 }); // Round to 1 decimal place
+  }
+  return result;
+}
+
+
+/**
  * Set the chart data
  */
 const setChartData = () => {
@@ -225,22 +250,26 @@ const setChartData = () => {
   for (const s of props.sensors) {
     const sy = scaleY.find((y) => { return y.sensor === s.sensor });
     const rgb = ConvertHEXtoRGB(s.color);
-    const data = {
-      label: s.name,
-      data: s.measurements,
+    const data: any = {
       backgroundColor: `rgba(${rgb}, 0.2)`,
       borderColor: `rgba(${rgb}, 1)`,
       borderWidth: 2,
+      data: s.measurements.map(p => ({ x: new Date(p.x), y: Number(p.y) })),
+      fill: false,
+      label: s.name,
+      parsing: false,
       pointHitRadius: 20,
       pointRadius: 0,
-      tension: 0.4,
-      fill: false,
       type: s.type,
       yAxisID: sy !== undefined ? sy.id : 'y'
     };
     if (s.type === 'bar') {
       bar.push(data);
-    } else { line.push(data); }
+    } else {
+      data.tension = 0.4;
+      data.stepped = false;
+      line.push(data);
+    }
   }
   return {
     datasets: [...line, ...bar]
@@ -258,14 +287,16 @@ const setChartOptions = () => {
       },
       ticks: {
         callback: (value: number, index: number, ticks: any): string => {
-          if (value <= 1) { return '-'; }
-          return FormatDate(value * 1000, true, true);
+          return FormatDate(value, true, true, true);
         }
+      },
+      time: {
+        unit: 'minute',
       },
       title: {
         display: false
       },
-      type: 'linear'
+      type: 'time'
     },
     y: {
       display: false
@@ -296,13 +327,16 @@ const setChartOptions = () => {
     }
     yindex++;
   }
-
   return {
+    dataset: {
+      stepped: false
+    },
     interaction: {
       mode: 'customMode',
       intersect: false
     },
     maintainAspectRatio: false,
+    normalized: true,
     parsing: false,
     plugins: {
       legend: {
@@ -320,7 +354,7 @@ const setChartOptions = () => {
             return context.parsed.y + ' ' + (unit !== undefined ? unit.unit : '');
           },
           title: (data: any) => {
-            return FormatDate(data[0].parsed.x * 1000, true, true);
+            return FormatDate(data[0].parsed.x * 1000, true, true, true);
           }
         },
         mode: 'customMode',

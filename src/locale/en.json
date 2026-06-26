@@ -95,6 +95,7 @@
       "11": "December"
     },
     "name": "Name",
+    "navigate": "Navigate",
     "newpassword": "New password",
     "newpasswordr": "New password repeat",
     "no": "No",
@@ -118,9 +119,27 @@
     "valueChange": "Value Change",
     "yes": "Yes"
   },
+  "header-buttons": {
+    "darkmode": "Dark mode",
+    "darkmode-accessible": "Switch to dark mode",
+    "language": "Language",
+    "language-accessible": "Switch language",
+    "lightmode": "Light mode",
+    "lightmode-accessible": "Switch to light mode",
+    "logout": "Logout",
+    "logout-accessible": "Logout from the app",
+    "user": "Profile",
+    "user-accessible": "Open user profile"
+  },
   "locale": {
     "en": "English",
     "fi": "Suomi"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "hmi": "HMI",
+    "home": "Home",
+    "settings": "Settings"
   },
   "pages": {
     "dashboard": {
@@ -137,6 +156,7 @@
       "delete_message": "Do you want to delete this sensor from the dashboard?",
       "save": "Save",
       "save_message": "Do you want to save your current dashboard?",
+      "select_chart_size": "Chart size",
       "select_sensor": "Sensor settings",
       "select_sensor_name": "Name",
       "source": "Measurement source",

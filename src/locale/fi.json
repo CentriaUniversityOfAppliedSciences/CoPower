@@ -95,6 +95,7 @@
       "11": "Joulukuu"
     },
     "name": "Nimi",
+    "navigate": "Siirry",
     "newpassword": "Uusi salasana",
     "newpasswordr": "Uuden salasanan toisto",
     "no": "Ei",
@@ -118,9 +119,27 @@
     "valueChange": "Arvon muutos",
     "yes": "Kyllä"
   },
+  "header-buttons": {
+    "darkmode": "Tumma tila",
+    "darkmode-accessible": "Vaihda tummaan tilaan",
+    "language": "Kieli",
+    "language-accessible": "Vaihda kieltä",
+    "lightmode": "Vaalea tila",
+    "lightmode-accessible": "Vaihda vaaleaan tilaan",
+    "logout": "Kirjaudu ulos",
+    "logout-accessible": "Kirjaudu ulos sovelluksesta",
+    "user": "Profiili",
+    "user-accessible": "Avaa käyttäjäprofiili"
+  },
   "locale": {
     "en": "English",
     "fi": "Suomi"
+  },
+  "navigation": {
+    "dashboard": "Kojetaulu",
+    "hmi": "HMI",
+    "home": "Koti",
+    "settings": "Asetukset"
   },
   "pages": {
     "dashboard": {
@@ -137,6 +156,7 @@
       "delete_message": "Haluatko poistaa tämän anturin kojetaulusta?",
       "save": "Tallenna",
       "save_message": "Haluatko tallentaa nykyisen kojetaulun?",
+      "select_chart_size": "Kaavion koko",
       "select_sensor": "Anturin asetukset",
       "select_sensor_name": "Nimi",
       "source": "Mittauslähde",
@@ -158,8 +178,8 @@
         "custom_month": "Mukautettu (Kuukausi)",
         "custom_range": "Mukautettu (Aikaväli)",
         "day": "Tänään",
-        "month": "Tämä viikko",
-        "week": "Tämä kuukausi"
+        "month": "Tämä kuukausi",
+        "week": "Tämä viikko"
       },
       "sensor_data_load": "Ladataan mittauksia...",
       "title": "Kojetaulu"

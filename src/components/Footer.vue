@@ -1,48 +1,48 @@
 <template>
   <div class="footer">
     <div v-if="themeColor === 'light'" class="footer-left">
-      <a class="logo" href="https://www.interreg-npa.eu/projects/copower/home/" aria-label="Interreg" target="_blank">
-        <img src="/assets/logo/copower-light.webp" alt="Interreg" class="margin-right" />
+      <a class="logo-interreg flex-center" href="https://www.interreg-npa.eu/projects/copower/home/" aria-label="Interreg" target="_blank">
+        <img class="logo" src="/assets/logo/copower-light.webp" alt="Interreg" />
       </a>
-      <a class="logo" href="https://www.ernact.eu/" aria-label="Ernact" target="_blank">
-        <img src="/assets/logo/ernact-light.webp" alt="Ernact" class="margin-right" />
+      <a class="logo-ernact flex-center" href="https://www.ernact.eu/" aria-label="Ernact" target="_blank">
+        <img src="/assets/logo/ernact-light.webp" alt="Ernact" />
       </a>
-      <a class="logo" href="https://www.oulu.fi/fmt/" aria-label="University of Oulu" target="_blank">
-        <img src="/assets/logo/uoo-light.webp" alt="University of Oulu" class="margin-right" />
+      <a class="logo-uoo flex-center" href="https://www.oulu.fi/fmt/" aria-label="University of Oulu" target="_blank">
+        <img src="/assets/logo/uoo-light.webp" alt="University of Oulu" />
       </a>
-      <a class="logo" href="https://www.donegalcoco.ie/" aria-label="Donegal County Council" target="_blank">
-        <img src="/assets/logo/donegal-light.webp" alt="Donegal County Council" class="margin-right" />
+      <a class="logo-donegal flex-center" href="https://www.donegalcoco.ie/" aria-label="Donegal County Council" target="_blank">
+        <img src="/assets/logo/donegal-light.webp" alt="Donegal County Council" />
       </a>
-      <a class="logo-smaller" href="https://net.centria.fi/en/" aria-label="Centria University of Applied Sciences" target="_blank">
-        <img src="/assets/logo/centria-light.webp" alt="Centria University of Applied Sciences" class="margin-right" />
+      <a class="logo-centria flex-center" href="https://net.centria.fi/en/" aria-label="Centria University of Applied Sciences" target="_blank">
+        <img src="/assets/logo/centria-light.webp" alt="Centria University of Applied Sciences" />
       </a>
-      <a class="logo-smaller margin-right" href="https://www.facebook.com/people/N%C3%B3lsoyar-Orkufelag/61575141518269/#" aria-label="Nolsoy Energy" target="_blank">
+      <a class="logo-nolsoy flex-center" href="https://www.facebook.com/people/N%C3%B3lsoyar-Orkufelag/61575141518269/#" aria-label="Nolsoy Energy" target="_blank">
         <img src="/assets/logo/nolsoy-light.webp" alt="Nolsoy Energy" />
       </a>
-      <a class="logo-smaller" href="https://english.hi.is/" aria-label="University of Iceland" target="_blank">
+      <a class="logo-uoi flex-center" href="https://english.hi.is/" aria-label="University of Iceland" target="_blank">
         <img src="/assets/logo/uoi-light.webp" alt="University of Iceland" />
       </a>
     </div>
     <div v-else-if="themeColor === 'dark'" class="footer-left">
-      <a class="logo" href="https://www.interreg-npa.eu/projects/copower/home/" aria-label="Interreg" target="_blank">
-        <img src="/assets/logo/copower-dark.webp" alt="Interreg" class="margin-right" />
+      <a class="logo-interreg flex-center" href="https://www.interreg-npa.eu/projects/copower/home/" aria-label="Interreg" target="_blank">
+        <img src="/assets/logo/copower-dark.webp" alt="Interreg" />
       </a>
-      <a class="logo" href="https://www.ernact.eu/" aria-label="Ernact" target="_blank">
-        <img src="/assets/logo/ernact-dark.webp" alt="Ernact" class="margin-right" />
+      <a class="logo-ernact flex-center" href="https://www.ernact.eu/" aria-label="Ernact" target="_blank">
+        <img src="/assets/logo/ernact-dark.webp" alt="Ernact" />
       </a>
-      <a class="logo" href="https://www.oulu.fi/fmt/" aria-label="University of Oulu" target="_blank">
-        <img src="/assets/logo/uoo-dark.webp" alt="University of Oulu" class="margin-right" />
+      <a class="logo-uoo flex-center" href="https://www.oulu.fi/fmt/" aria-label="University of Oulu" target="_blank">
+        <img src="/assets/logo/uoo-dark.webp" alt="University of Oulu" />
       </a>
-      <a class="logo" href="https://www.donegalcoco.ie/" aria-label="Donegal County Council" target="_blank">
-        <img src="/assets/logo/donegal-dark.webp" alt="Donegal County Council" class="margin-right" />
+      <a class="logo-donegal flex-center" href="https://www.donegalcoco.ie/" aria-label="Donegal County Council" target="_blank">
+        <img src="/assets/logo/donegal-dark.webp" alt="Donegal County Council" />
       </a>
-      <a class="logo-smaller" href="https://net.centria.fi/en/" aria-label="Centria University of Applied Sciences" target="_blank">
-        <img src="/assets/logo/centria-dark.webp" alt="Centria University of Applied Sciences" class="margin-right" />
+      <a class="logo-centria flex-center" href="https://net.centria.fi/en/" aria-label="Centria University of Applied Sciences" target="_blank">
+        <img src="/assets/logo/centria-dark.webp" alt="Centria University of Applied Sciences" />
       </a>
-      <a class="logo-smaller margin-right" href="https://www.facebook.com/people/N%C3%B3lsoyar-Orkufelag/61575141518269/#" aria-label="Nolsoy Energy" target="_blank">
+      <a class="logo-nolsoy flex-center" href="https://www.facebook.com/people/N%C3%B3lsoyar-Orkufelag/61575141518269/#" aria-label="Nolsoy Energy" target="_blank">
         <img src="/assets/logo/nolsoy-dark.webp" alt="Nolsoy Energy" />
       </a>
-      <a class="logo-smaller" href="https://english.hi.is/" aria-label="University of Iceland" target="_blank">
+      <a class="logo-uoi flex-center" href="https://english.hi.is/" aria-label="University of Iceland" target="_blank">
         <img src="/assets/logo/uoi-dark.webp" alt="University of Iceland" />
       </a>
     </div>
@@ -74,11 +74,13 @@ const version = import.meta.env.VITE_APP_VERSION;
 const themeColor = ref(isDark.value ? 'dark' : 'light'); // Current theme color
 </script>
 <style scoped>
+/* Base styles: mobile (default) */
 .footer {
   color: white;
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
   padding: 5px;
   z-index: 2;
@@ -87,8 +89,9 @@ const themeColor = ref(isDark.value ? 'dark' : 'light'); // Current theme color
 .footer-left {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  width: 100%;
+  height: 50%;
 }
 
 .footer-left > div, .footer-right > div, .footer-simple > div {
@@ -97,7 +100,7 @@ const themeColor = ref(isDark.value ? 'dark' : 'light'); // Current theme color
 
 .footer-right {
   display: flex;
-  height: 100%;
+  height: 50%;
   align-items: center;
 }
 
@@ -112,8 +115,35 @@ const themeColor = ref(isDark.value ? 'dark' : 'light'); // Current theme color
 
 img { height: 100%; }
 
-.logo { height: 100%; }
-.logo-smaller { height: 60%; }
+.logo-centria {
+  width: 8em;
+  height: 1em;
+}
+.logo-donegal {
+  width: 8em;
+  height: 1.5em;
+}
+.logo-ernact {
+  width: 4em;
+  height: 1.5em;
+}
+.logo-interreg {
+  width: 7em;
+  height: 1.5em;
+}
+.logo-nolsoy {
+  width: 6em;
+  height: 0.75em;
+  margin-bottom: 0.25em;
+}
+.logo-uoi {
+  width: 9em;
+  height: 1.25em;
+}
+.logo-uoo {
+  width: 4em;
+  height: 1.5em;
+}
 
 .social {
   color: var(--color-black);
@@ -125,5 +155,53 @@ img { height: 100%; }
 .version-number {
   color: var(--color-black);
   font-size: 0.75em;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .logo-centria {
+    width: 8em;
+    height: 2em;
+  }
+  .logo-donegal {
+    width: 8em;
+    height: 2.5em;
+  }
+  .logo-ernact {
+    width: 4em;
+    height: 2.5em;
+  }
+  .logo-interreg {
+    width: 7em;
+    height: 2.5em;
+  }
+  .logo-nolsoy {
+    width: 6em;
+    height: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  .logo-uoi {
+    width: 9em;
+    height: 2em;
+  }
+  .logo-uoo {
+    width: 4em;
+    height: 2.5em;
+  }
+}
+
+/* Laptop / small desktop */
+@media (min-width: 1024px) {
+  .footer { flex-direction: row; }
+  .footer-left, .footer-right { height: 100%; }
+}
+
+/* Large desktop */
+@media (min-width: 1280px) {
+}
+
+/* Extra large desktop */
+@media (min-width: 1536px) {
+
 }
 </style>

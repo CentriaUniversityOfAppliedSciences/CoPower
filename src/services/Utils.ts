@@ -6,12 +6,21 @@ import { StorageGet } from "./Storage";
  * @param requiredRole Access role to check against (appadmin, admin, user)
  * @returns If the user has access to the required role
  */
-const CheckAccess = (requiredRole: string): boolean => {
+const CheckAccess = (requiredRole: string, returnHighest: boolean = false): boolean => {
   const role = StorageGet('role');
   switch (requiredRole) {
-    case 'appadmin': { return role === 'appadmin'; } // Check if user is appadmin
-    case 'admin': { return role === 'admin' || role === 'appadmin'; } // Check if user is admin
-    case 'user': { return role === 'user' || role === 'admin' || role === 'appadmin'; } // Check if user is user or admin
+    case 'appadmin': { // Check if user is appadmin
+      if (returnHighest === true) { return role === 'appadmin'; }
+      return role === 'appadmin';
+    }
+    case 'admin': { // Check if user is admin
+      if (returnHighest === true) { return role === 'admin'; }
+      return role === 'admin' || role === 'appadmin';
+    }
+    case 'user': { // Check if user is user
+      if (returnHighest === true) { return role === 'user'; }
+      return role === 'user' || role === 'admin' || role === 'appadmin';
+    }
     default: { return false; } // Invalid role
   }
 }

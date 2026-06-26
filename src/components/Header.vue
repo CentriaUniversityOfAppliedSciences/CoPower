@@ -11,7 +11,15 @@
     <div class="header-left">
       <Navigation />
     </div>
-    <div class="header-right">
+    <div class="header-center">
+      <img class="logo-image" src="/assets/img/logo.webp" alt="Application logo" />
+    </div>
+    <div class="header-right header-settings-minimal">
+      <div>
+        <SettingsMenu />
+      </div>
+    </div>
+    <div class="header-right header-settings-full">
       <DarkMode />
       <Locale />
       <Logout />
@@ -24,6 +32,7 @@ import DarkMode from './header/DarkMode.vue';
 import Locale from './header/Locale.vue';
 import Logout from './header/Logout.vue';
 import Navigation from './header/Navigation.vue';
+import SettingsMenu from './header/SettingsMenu.vue';
 import User from './header/User.vue';
 
 const props = defineProps({
@@ -35,29 +44,46 @@ const props = defineProps({
 </script>
 <style scoped>
 .header {
+  height: 100%;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
   background-color: var(--header-color);
   z-index: 2;
 }
 
-.header-left {
+.header-center {
+  height: 100%;
   display: flex;
   align-items: center;
-  margin-left: 1em;
+  justify-content: center;
+  flex: 0.75;
 }
 
-.header-left > div, .header-right > div {
-  margin-right: 1em;
+.header-left {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-right > div {
+  margin-right: 0.5em;
   pointer-events: all;
 }
 
 .header-right {
-  display: flex;
+  height: 100%;
+  flex: 1;
   align-items: center;
+  justify-content: flex-end;
+}
+
+.header-settings-minimal {
+  justify-content: flex-end;
 }
 
 .header-simple {
@@ -69,5 +95,33 @@ const props = defineProps({
   z-index: 2;
   position: fixed;
   pointer-events: none;
+}
+
+.header-simple .header-right {
+  display: flex;
+}
+
+.logo-image {
+  max-width: 5em;
+  height: auto;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .logo-image { max-width: 6.5em; }
+}
+
+/* Laptop / small desktop */
+@media (min-width: 1024px) {
+}
+
+/* Large desktop */
+@media (min-width: 1280px) {
+  .logo-image { max-width: 6em; }
+}
+
+/* Extra large desktop */
+@media (min-width: 1536px) {
+  .logo-image { max-width: 8em; }
 }
 </style>

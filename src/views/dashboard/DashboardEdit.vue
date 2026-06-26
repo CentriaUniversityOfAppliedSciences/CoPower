@@ -21,10 +21,9 @@
         <span>{{ $t('pages.dashboard-edit.dashboardType.' + dashboardType) }}</span>
       </div>
       
-      <div class="grid grid-cols-3 gap-4">
-        <div v-for="(snr, index) of sensors" class="slot">
-
-          <div class="chart-test">
+      <div class="chart-grid">
+        <div v-for="(snr, index) of sensors" :class="['chart-item chart-size-width-' + snr.size[0] + ' chart-size-height-' + snr.size[1]]" :key="index">
+          <div :class="['chart-test chart-test-height-' + snr.size[1]]">
             <Chart
               :counter="snr.counter"
               :edit="true"
@@ -44,17 +43,12 @@
             <i :class="['pi pi-arrow-right', { 'button-icon-disabled': index === sensors.length - 1 }]" @click="moveChart(index, 1)" />
           </div>
 
-          <div>
+          <div class="position-relative">
             <IftaLabel>
               <InputText id="sensorName" class="w-full" v-model="snr.name" :maxlength="80"  @update:modelValue="incrementCounter(snr)" />
               <label for="sensorName">{{ $t('pages.dashboard-edit.select_sensor_name') }}</label>
-              
             </IftaLabel>
-            <div class="flex flex-justify-end">
-              <span>
-              {{ snr.name.length }}/{{ AppSettings.inputMax.dashboardChartNameMax }}
-              </span>
-            </div>
+            <span class="name-counter">{{ snr.name.length }}/{{ AppSettings.inputMax.dashboardChartNameMax }}</span>
           </div>
           <div class="position-relative">
             <IftaLabel v-for="(dsnr, dIndex) in snr.sensors" :key="dIndex">
@@ -64,11 +58,14 @@
               <i :class="['pi pointer chart-type-picker',{ 'pi-chart-bar': dsnr.type === 'bar', 'pi-chart-line': dsnr.type === 'line' }]" @click="changeChartType(snr, dsnr)" />
               <ColorPicker v-model="dsnr.color" class="color-picker" format="hex" @change="incrementCounter(snr)" />
             </IftaLabel>
+            <IftaLabel>
+              <Select class="w-full" :options="sizeOptions" v-model="snr.size" optionLabel="label" optionValue="value" placeholder="1x1" />
+              <label>{{ $t('pages.dashboard-edit.select_chart_size') }}</label>
+            </IftaLabel>
             <div v-if="snr.sensors.length < 5" class="width-100 flex-center">
               <Button type="button" class="width-100" :label="$t('buttons.addnewchartsensor')" icon="pi pi-plus" @click="addChartSensor(snr)" />
             </div>
           </div>
-          
         </div>
         <div v-if="sensors.length < 50" class="slot add-new flex-center">
           <Button type="button" :label="$t('buttons.addnew')" icon="pi pi-plus" @click="addNewChart()" />
@@ -109,6 +106,17 @@ const pageStatus = ref(0);
 let sensorId = 0;
 const sensorList = ref<SensorEditList[]>([]);
 const sensors = ref<DashboardSensorObject[]>([]);
+const sizeOptions = [
+  { label: '1x1', value: [1, 1] },
+  { label: '2x1', value: [2, 1] },
+  { label: '3x1', value: [3, 1] },
+  { label: '1x2', value: [1, 2] },
+  { label: '2x2', value: [2, 2] },
+  { label: '3x2', value: [3, 2] },
+  { label: '1x3', value: [1, 3] },
+  { label: '2x3', value: [2, 3] },
+  { label: '3x3', value: [3, 3] }
+];
 const testMeasurments = ref<MeasurementObject[]>([]);
 
 onMounted(() => {
@@ -134,6 +142,7 @@ const addNewChart = () => {
     index: sensorId,
     name: '',
     sensors: [],
+    size: [1, 1],
     status: 0,
   });
   sensorId++;
@@ -318,7 +327,8 @@ const saveDashboard = (): void => {
         const sensors: any[] = [];
         const newSnr: DashboardSensorSaveObject = {
           name: snr.name,
-          sensors
+          sensors,
+          size: snr.size
         };
         for (const dsnr of snr.sensors) {
           sensors.push({
@@ -353,6 +363,7 @@ const saveDashboard = (): void => {
 .add-new {
   background-color: var(--p-button-primary-background);
   padding: 0 !important;
+  width: 32%;
 }
 .add-new Button {
   width: 100%;
@@ -379,7 +390,6 @@ const saveDashboard = (): void => {
 
 .chart-test {
   width: 100%;
-  height: 15em;
 }
 
 .color-picker {
@@ -404,6 +414,12 @@ const saveDashboard = (): void => {
 
 .header { margin-bottom: 1em; }
 .header Button { margin-right: 1em; }
+
+.name-counter {
+  position: absolute;
+  right: 0.5em;
+  top: 0.25em;
+}
 
 .slot {
   border: 1px solid var(--color-black);

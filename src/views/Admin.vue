@@ -29,18 +29,22 @@ import Sidebar from '@/components/Sidebar.vue';
   }
 
   .content {
-    flex: 1;
-    
+    flex: 9;
   }
 
-  .sidebar { width: 100%; }
+  .sidebar {
+    flex: 1;
+    width: 100%;
+  }
 }
 
 @media (orientation: landscape) {
-  .sidebar { width: 200px; }
+  .sidebar {
+    flex: 1;
+  }
 
   .content {
-    flex: 1;
+    flex: 9;
     padding: 5px;
   }
 }

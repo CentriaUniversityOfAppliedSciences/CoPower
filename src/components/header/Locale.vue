@@ -1,10 +1,15 @@
 <template>
-  <div class="flex-center">
-    <i class="header-icon pi pi-language pointer" @click="toggleLanguage"></i>
+  <div class="flex-center" @click="toggleLanguage" :aria-label="$t('header-buttons.language-accessible')">
+    <div class="flex-1 li-icon">
+      <i class="header-icon pi pi-language pointer"></i>
+    </div>
+    <div v-if="listItem === true" class="flex-4 li-text">
+      {{ $t('header-buttons.language') }}
+    </div>
 
     <Popover ref="languagepo">
       <div class="locale-list flex flex-col">
-        <div v-for="lang in AppSettings.languages" :key="lang" class="locale-flag pointer flex flex-justify-end flex-align-center cursor-pointer" :class="{ 'locale-selected': languageCurrent() === lang }" @click="setLanguage(lang)">
+        <div v-for="lang in AppSettings.languages" :key="lang" class="locale-flag pointer flex flex-justify-end flex-align-center cursor-pointer" :class="{ 'locale-selected': languageCurrent() === lang }" @click="setLanguage(lang)" :aria-label="t(`locale.${lang}`)">
           <i v-if="languageCurrent() === lang" class="pi pi-check locale-checkmark"></i>
           <img class="locale-flag-img" :src="`/dashboard/app/assets/locale/${lang}.svg`" :alt="t(`locale.${lang}`)" width="48px"/>
         </div>
@@ -24,11 +29,20 @@ import { all as locales } from 'primelocale';
 
 const { t } = useI18n();
 
+const props = defineProps({
+  listItem: { // If true, the component is used as a list item in the settings menu
+    type: Boolean,
+    default: false
+  }
+});
+
 const primevue = usePrimeVue();
 const languagepo = ref(); // Reference to Popover component
 
+const emit = defineEmits<{ (e: 'localeSelected'): void }>();
+
 onMounted(() => {
-  setPrimeLocale(languageCurrent());
+  setPrimeLocale(languageCurrent()); // Set PrimeVue locale on component mount
 });
 
 /**
@@ -41,6 +55,7 @@ const setLanguage = (lang: string): void => {
     languageChange(lang);
   }
   languagepo.value.hide();
+  emit('localeSelected');
 }
 
 const setPrimeLocale = (lang: string): void => {
@@ -58,6 +73,22 @@ const toggleLanguage = (event: any): void => {
 }
 </script>
 <style scoped>
+.li-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 10px;
+}
+
+.li-text {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
 .locale-checkmark {
   color: var(--color-green);
   font-size: 1.5em;

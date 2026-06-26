@@ -106,10 +106,6 @@ const loadDashboard = async (dashboard: 'default' | 'user' | 'public') => {
 .dashboard-main-selector {
   pointer-events: none;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 4em;
 }
 
 select {

@@ -29,8 +29,35 @@ dialogInstanceInit(confirm); // Initialize dialog service
 toastInstanceInit(toast); // Initialize toast service
 </script>
 <style scoped>
-.main-content { height: 87%; overflow: auto; }
-.main-footer { height: 5%; overflow: hidden; }
-.main-header { height: 8%; overflow: hidden; }
-.full-content { height: 95%; }
+.main-content { height: 82%; overflow: auto; }
+.main-footer {
+  height: 10%;
+  overflow: hidden;
+}
+.main-header {
+  height: 8%;
+}
+.full-content { height: 90%; }
+
+/* Tablet */
+@media (min-width: 768px) {
+  
+}
+
+/* Laptop / small desktop */
+@media (min-width: 1024px) {
+  .main-content { height: 87%; overflow: auto; }
+  .main-footer { height: 5%; overflow: hidden; }
+  .main-header { height: 8%; overflow: hidden; }
+  .full-content { height: 95%; }
+}
+
+/* Large desktop */
+@media (min-width: 1280px) {
+}
+
+/* Extra large desktop */
+@media (min-width: 1536px) {
+
+}
 </style>
